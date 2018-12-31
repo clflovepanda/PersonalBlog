@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/guestbook.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <a href="/" class="title">我的个人博客 | 技术博客</a>
+        <ul class="menu">
+            <li><a href="/">首页</a></li>
+            <li><a href="/sitemap.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="search_bar">
+            <input type="text" placeholder="输入关键词查找">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <div class="content_left">
+        <div class="description">
+            <p>欢迎灌水交流，别看我长时间不发博，博主可一直都在线~</p>
+            <p style="color: red;">友链只交换技术类个人博客。</p>
+            <p style="color: red">不要皮，谢谢。</p>
+        </div>
+        <div class="blog_comments" id="blog_comments">
+            <span class="blog_comments_msg">当前文章：{{total}} 条留言</span>
+            <div class="blog_comment" v-for="comment in comments">
+                <span><b>{{comment.user_name}}</b>：{{comment.options}} 发表于 {{comment.ctime}} <a style="cursor: pointer" v-on:click="reply(comment.id, comment.user_name)">[回复]</a></span>
+                <div>{{comment.comments}}</div>
+            </div>
+        </div>
+
+        <div class="send_comment" id="send_comment">
+            <span>发表评论</span>
+            <div>
+                <input type="hidden" id="comment_reply" value="-1">
+                <input type="hidden" id="comment_reply_name" value="0">
+                <input type="text" placeholder="昵称" id="comment_name">
+                <input type="text" placeholder="邮箱（评论被回复时你能收到通知）" id="comment_email">
+            </div>
+            <div>
+                <textarea placeholder="无意义的内容我可能不会回复你" id="comment_content"></textarea>
+            </div>
+            <div>
+                <input type="text" placeholder="验证码" id="comment_code">
+                <span v-html="vcode" v-on:click="changeCode()"></span>
+            </div>
+            <button v-on:click="sendComment()">提交评论</button>
+        </div>
+    </div>
+    <div class="content_right">
+        <div class="right_moodule" id="random_tags">
+            <div>随机标签云</div>
+            <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+        </div>
+        <div class="right_moodule" id="new_hot">
+            <div>最近热门</div>
+            <ul>
+                <li v-for="temp in titleList">
+                    <a v-bind:href="temp.link">{{temp.title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right_moodule" id="new_comments">
+            <div>最新评论</div>
+            <ul>
+                <li v-for="comment in commentList">
+                    <div>
+                        <span>{{comment.name}}</span>
+                        <span class="pull_right">{{comment.date}}</span>
+                    </div>
+                    <p>{{comment.comment}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="right_moodule">
+            <div>友情链接</div>
+            <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
+            <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
+            <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
+            <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
+            <span><a href="/">挨踢茶馆</a></span><span><a href="/">挨踢茶馆</a></span>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <ul>
+        <li>C/C++</li>
+        <li>CSS/DIV</li>
+        <li>java</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+        <li>C/C++</li>
+    </ul>
+    <p>Copyright © 2010-2017 巴拉巴拉的</p>
+</footer>
+<script src="./js/guestbook.js"></script>
+<script src="./js/base.js"></script>
+</body>
+</html>

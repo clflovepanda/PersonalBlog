@@ -1,0 +1,97 @@
+.description {
+    background: white;
+    width: 96%;
+    border-radius: 5px;
+    padding: 30px 15px 30px 15px;
+    box-shadow: 3px 4px 3px #888888;
+    text-align: left;
+}
+
+.description p {
+    margin-top: 12px;
+    padding: 0px 0px 0px 10px;
+    font-size: 14px;
+}
+
+
+.blog_comments {
+    width: 100%;
+}
+
+.blog_comments_msg {
+    margin-top: 20px;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.blog_comment {
+    width: 95%;
+    background: #d9edf7;
+    border: 1px dashed #7ca4c1;
+    padding: 10px 10px 20px 10px;
+    margin-top: 10px;
+    color: #31708f;
+    text-align: left;
+}
+
+.blog_comment span {
+    display: inline-block;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.blog_comment div {
+    display: inline-block;
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+
+.send_comment {
+    background: #f5f5f5;
+    width: 96%;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 3px 4px 3px #888888;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.send_comment input {
+    width: 300px;
+    height: 34px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.send_comment textarea {
+    width: 90%;
+    height: 100px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.send_comment button {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.send_comment button:hover {
+    background: #adadad;
+}
